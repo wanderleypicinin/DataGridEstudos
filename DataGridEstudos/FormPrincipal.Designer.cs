@@ -60,6 +60,7 @@
             btnAtualizar.TabIndex = 2;
             btnAtualizar.Text = "Atualizar";
             btnAtualizar.UseVisualStyleBackColor = true;
+            btnAtualizar.Click += btnAtualizar_Click;
             // 
             // FormPrincipal
             // 
@@ -71,6 +72,7 @@
             Controls.Add(dataGridView1);
             Name = "FormPrincipal";
             Text = "FormPrincipal";
+            Load += FormPrincipal_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }

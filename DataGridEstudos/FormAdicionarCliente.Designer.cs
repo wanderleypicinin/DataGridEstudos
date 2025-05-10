@@ -113,6 +113,7 @@
             btnSalvar.TabIndex = 8;
             btnSalvar.Text = "Salvar";
             btnSalvar.UseVisualStyleBackColor = true;
+            btnSalvar.Click += btnSalvar_Click;
             // 
             // btnCancelar
             // 
@@ -150,6 +151,7 @@
             Controls.Add(txtNome);
             Name = "FormAdicionarCliente";
             Text = "FormAdicionarCliente";
+            Load += FormAdicionarCliente_Load;
             ResumeLayout(false);
             PerformLayout();
         }
