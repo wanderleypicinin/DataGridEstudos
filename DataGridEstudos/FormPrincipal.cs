@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Tls;
 
 namespace DataGridEstudos
 {
@@ -85,6 +86,38 @@ namespace DataGridEstudos
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
             CarregarDados();
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {         
+
+            try
+            {
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    int id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["id"].Value);
+                    using (MySqlConnection connection = new MySqlConnection(connectionString))
+                    { 
+                    
+                        connection.Open();
+                        string query = "DELETE FROM clientes WHERE id= @id";
+                        MySqlCommand command = new MySqlCommand(query, connection);
+                        command.Parameters.AddWithValue("@id", id);
+                        command.ExecuteNonQuery();
+                    }
+                    CarregarDados();
+                    
+                }    
+                 else
+                {
+                    MessageBox.Show("Selecione uma linha para excluir.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }                                                 
+              
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao excluir cliente:" + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

@@ -31,6 +31,7 @@
             dataGridView1 = new DataGridView();
             btnAdicionar = new Button();
             btnAtualizar = new Button();
+            btnExcluir = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -62,11 +63,22 @@
             btnAtualizar.UseVisualStyleBackColor = true;
             btnAtualizar.Click += btnAtualizar_Click;
             // 
+            // btnExcluir
+            // 
+            btnExcluir.Location = new Point(362, 256);
+            btnExcluir.Name = "btnExcluir";
+            btnExcluir.Size = new Size(75, 23);
+            btnExcluir.TabIndex = 3;
+            btnExcluir.Text = "Excluir";
+            btnExcluir.UseVisualStyleBackColor = true;
+            btnExcluir.Click += btnExcluir_Click;
+            // 
             // FormPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnExcluir);
             Controls.Add(btnAtualizar);
             Controls.Add(btnAdicionar);
             Controls.Add(dataGridView1);
@@ -82,5 +94,6 @@
         private DataGridView dataGridView1;
         private Button btnAdicionar;
         private Button btnAtualizar;
+        private Button btnExcluir;
     }
 }
